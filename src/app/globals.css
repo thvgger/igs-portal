@@ -1,11 +1,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #936a3e;
+  --secondary-color: #2196F3;
+  --accent-color: #FFC107;
+  --text-dark: #333;
+  --text-light: #f4f4f4;
+  --bg-light: #ffffff;
+  --bg-dark: #2c3e50;
+  --primary-hover: #674b2d;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #202020;
     --foreground: #ededed;
   }
 }
@@ -33,6 +44,12 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.logo-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+  color: var(--primary);
 }
 
 @media (prefers-color-scheme: dark) {
