@@ -86,7 +86,7 @@ export default function LoginPage() {
 
           <button className={styles.loginButton} type="submit">Log in</button>
         </form>
-      <p className={styles.text}>Don't have an account? <Link href="./student">Register</Link></p>
+      <p className={styles.text}>Don&#39;t have an account? <Link href="/register">Register</Link></p>
     </div>
   );
 }
