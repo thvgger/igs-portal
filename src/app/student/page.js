@@ -94,11 +94,11 @@ export default function StudentDashboardPage() {
                         <tbody>
                             {studentOutstandingFees.map((fee) => (
                                 <tr key={fee.id}>
-                                    <td>{fee.name}</td>
-                                    <td>₦{fee.amount.toLocaleString()}</td> {/* Format for Naira */}
-                                    <td>{new Date(fee.dueDate).toLocaleDateString()}</td>
-                                    <td><span className={`status ${fee.status}`}>{fee.status}</span></td>
-                                    <td>
+                                    <td data-label="Fee Name">{fee.name}</td>
+                                    <td data-label="Amount">₦{fee.amount.toLocaleString()}</td>
+                                    <td data-label="Due Date">{new Date(fee.dueDate).toLocaleDateString()}</td>
+                                    <td data-label="Status"><span className={`status ${fee.status}`}>{fee.status}</span></td>
+                                    <td data-label="Action">
                                         <Link href={`/pay?feeId=${fee.id}`} className="pay-button">
                                             Pay Now
                                         </Link>
@@ -115,7 +115,7 @@ export default function StudentDashboardPage() {
                 {studentPaymentHistory.length === 0 ? (
                     <p>No payment history found.</p>
                 ) : (
-                    <table className="fees-table"> {/* Reusing the table style */}
+                    <table className="fees-table">
                         <thead>
                             <tr>
                                 <th>Fee Paid For</th>
@@ -128,11 +128,11 @@ export default function StudentDashboardPage() {
                         <tbody>
                             {studentPaymentHistory.map((payment) => (
                                 <tr key={payment.id}>
-                                    <td>{payment.feeName}</td>
-                                    <td>₦{payment.amount.toLocaleString()}</td>
-                                    <td>{new Date(payment.date).toLocaleDateString()}</td>
-                                    <td><span className={`status ${payment.status}`}>{payment.status}</span></td>
-                                    <td>{payment.transactionId}</td>
+                                    <td data-label="Fee Paid For">{payment.feeName}</td>
+                                    <td data-label="Amount">₦{payment.amount.toLocaleString()}</td>
+                                    <td data-label="Date">{new Date(payment.date).toLocaleDateString()}</td>
+                                    <td data-label="Status"><span className={`status ${payment.status}`}>{payment.status}</span></td>
+                                    <td data-label="Transaction ID">{payment.transactionId}</td>
                                 </tr>
                             ))}
                         </tbody>

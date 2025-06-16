@@ -21,7 +21,7 @@ export const Students = [
 export const Admins = [
     {
         id: 'adm001',
-        email: 'admin@example.com',
+        email: 'admin@admin.com',
         password: 'adminpassword',
         firstName: 'Super',
         lastName: 'Admin',
@@ -60,9 +60,36 @@ export const OutstandingFees = [
         dueDate: '2025-08-31', 
         status: 'outstanding' 
     },
+
+    { 
+        id: 'fee004', 
+        studentId: 'stu002', 
+        name: 'Portal Fee', 
+        amount: 500.00, 
+        dueDate: '2025-08-31', 
+        status: 'outstanding' 
+    },
 ];
 
 export const PaymentHistory = [
-    { id: 'pay001', studentId: 'stu001', feeName: 'Lab Fee', amount: 10000.00, date: '2025-05-10', status: 'completed', transactionId: 'TXN12345' },
-    { id: 'pay002', studentId: 'stu002', feeName: 'ID Card Fee', amount: 2000.00, date: '2025-01-20', status: 'completed', transactionId: 'TXN67890' },
+    { 
+        id: 'pay001', 
+        studentId: 'stu001', 
+        feeName: 'Lab Fee', 
+        amount: 10000.00, 
+        date: '2025-05-10', 
+        status: 'completed', 
+        transactionId: 'TXN12345' 
+    },
+
+    { 
+        id: 'pay002', 
+        studentId: 'stu002', 
+        feeName: 'ID Card Fee', 
+        amount: 2000.00, 
+        date: '2025-01-20', 
+        status: 'completed', 
+        transactionId: 'TXN67890' 
+    },
+
 ];
