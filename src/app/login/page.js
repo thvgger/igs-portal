@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Users } from '../../data/mockdata'; // Adjust path if needed
 import styles from './page.module.css'
 
+
 export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -41,12 +42,13 @@ export default function LoginPage() {
             alert(`Login successful! Welcome, ${user.firstName}.`); // Simple confirmation
 
             // Redirect based on role
+            
             if (user.role === 'student') {
                 router.push('/student');
             } else if (user.role === 'admin') {
-                router.push('/admin-dashboard');
+                router.push('/admin');
             } else {
-                router.push('/'); // Fallback
+                router.push('/');
             }
 
         } else {
@@ -54,8 +56,14 @@ export default function LoginPage() {
         }
     };
   return (
+
+    
     
     <div className={styles.card}>
+
+        
+
+
         <div className={styles.logo}>
             <i className="fas fa-graduation-cap logo-icon"></i> Ifeoluwa Group Of Schools
         </div>

@@ -5,8 +5,12 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link'; // For any potential internal links
 import { OutstandingFees, PaymentHistory } from '../../data/mockdata';
+import Navbar from '../components/Navbar'
+import styles from './page.module.css'
 
 export default function StudentDashboardPage() {
+    const [activeNav, setActiveNav] = useState('');
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const router = useRouter();
     const [user, setUser] = useState(null); // State to store logged-in user info
     const [studentOutstandingFees, setStudentOutstandingFees] = useState([]);
@@ -53,6 +57,15 @@ export default function StudentDashboardPage() {
         router.push('/login'); // Redirect to login page
     };
 
+      const scrollToSection = (id) => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            setActiveNav(id);
+            setIsMobileMenuOpen(false);
+          }
+        };
+
     if (loading || !user) {
         // Show a simple loading indicator or blank page while checking auth
         return (
@@ -63,82 +76,93 @@ export default function StudentDashboardPage() {
     }
 
     return (
-        <div className="dashboard-container">
-            <header className="dashboard-header">
-                <h1>Welcome, {user.firstName} {user.lastName}!</h1>
-                <button onClick={handleLogout} className="logout-button">Logout</button>
-            </header>
+        <div className={styles.student}>
 
-            <section className="student-info-card">
-                <h2>Your Information</h2>
-                <p><strong>Student ID:</strong> {user.studentId || 'N/A'}</p>
-                <p><strong>Email:</strong> {user.email}</p>
-                {/* Add more student details here as needed from mock data */}
-            </section>
+            <Navbar
+              isMobileMenuOpen={isMobileMenuOpen}
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+              activeNav={activeNav}
+              scrollToSection={scrollToSection}
+            />
+            
+            <div className="dashboard-container">
 
-            <section className="outstanding-fees-card">
-                <h2>Outstanding Fees</h2>
-                {studentOutstandingFees.length === 0 ? (
-                    <p>No outstanding fees at the moment. Great!</p>
-                ) : (
-                    <table className="fees-table">
-                        <thead>
-                            <tr>
-                                <th>Fee Name</th>
-                                <th>Amount</th>
-                                <th>Due Date</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {studentOutstandingFees.map((fee) => (
-                                <tr key={fee.id}>
-                                    <td data-label="Fee Name">{fee.name}</td>
-                                    <td data-label="Amount">₦{fee.amount.toLocaleString()}</td>
-                                    <td data-label="Due Date">{new Date(fee.dueDate).toLocaleDateString()}</td>
-                                    <td data-label="Status"><span className={`status ${fee.status}`}>{fee.status}</span></td>
-                                    <td data-label="Action">
-                                        <Link href={`/pay?feeId=${fee.id}`} className="pay-button">
-                                            Pay Now
-                                        </Link>
-                                    </td>
+                <header className="dashboard-header">
+                    <h1>Welcome, {user.firstName} {user.lastName}!</h1>
+                    <button onClick={handleLogout} className="logout-button">Logout</button>
+                </header>
+
+                <section className="student-info-card">
+                    <h2>Your Information</h2>
+                    <p><strong>Student ID:</strong> {user.id || 'N/A'}</p>
+                    <p><strong>Email:</strong> {user.email}</p>
+                    {/* Add more student details here as needed from mock data */}
+                </section>
+
+                <section className="outstanding-fees-card">
+                    <h2>Outstanding Fees</h2>
+                    {studentOutstandingFees.length === 0 ? (
+                        <p>No outstanding fees at the moment. Great!</p>
+                    ) : (
+                        <table className="fees-table">
+                            <thead>
+                                <tr>
+                                    <th>Fee Name</th>
+                                    <th>Amount</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                )}
-            </section>
+                            </thead>
+                            <tbody>
+                                {studentOutstandingFees.map((fee) => (
+                                    <tr key={fee.id}>
+                                        <td data-label="Fee Name">{fee.name}</td>
+                                        <td data-label="Amount">₦{fee.amount.toLocaleString()}</td>
+                                        <td data-label="Due Date">{new Date(fee.dueDate).toLocaleDateString ()}</td>
+                                        <td data-label="Status"><span className={`status ${fee.status}`}>   {fee.status}</span></td>
+                                        <td data-label="Action">
+                                            <Link href={`/pay?feeId=${fee.id}`} className="pay-button">
+                                                Pay Now
+                                            </Link>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    )}
+                </section>
 
-            <section className="payment-history-card">
-                <h2>Payment History</h2>
-                {studentPaymentHistory.length === 0 ? (
-                    <p>No payment history found.</p>
-                ) : (
-                    <table className="fees-table">
-                        <thead>
-                            <tr>
-                                <th>Fee Paid For</th>
-                                <th>Amount</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Transaction ID</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {studentPaymentHistory.map((payment) => (
-                                <tr key={payment.id}>
-                                    <td data-label="Fee Paid For">{payment.feeName}</td>
-                                    <td data-label="Amount">₦{payment.amount.toLocaleString()}</td>
-                                    <td data-label="Date">{new Date(payment.date).toLocaleDateString()}</td>
-                                    <td data-label="Status"><span className={`status ${payment.status}`}>{payment.status}</span></td>
-                                    <td data-label="Transaction ID">{payment.transactionId}</td>
+                <section className="payment-history-card">
+                    <h2>Payment History</h2>
+                    {studentPaymentHistory.length === 0 ? (
+                        <p>No payment history found.</p>
+                    ) : (
+                        <table className="fees-table">
+                            <thead>
+                                <tr>
+                                    <th>Fee Paid For</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Transaction ID</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                )}
-            </section>
+                            </thead>
+                            <tbody>
+                                {studentPaymentHistory.map((payment) => (
+                                    <tr key={payment.id}>
+                                        <td data-label="Fee Paid For">{payment.feeName}</td>
+                                        <td data-label="Amount">₦{payment.amount.toLocaleString()}</td>
+                                        <td data-label="Date">{new Date(payment.date).toLocaleDateString()}</   td>
+                                        <td data-label="Status"><span className={`status ${payment.status}`}>   {payment.status}</span></td>
+                                        <td data-label="Transaction ID">{payment.transactionId}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    )}
+                </section>
+            </div>
         </div>
     );
 }

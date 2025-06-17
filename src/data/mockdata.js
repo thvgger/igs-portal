@@ -41,6 +41,7 @@ export const OutstandingFees = [
         amount: 150000.00, 
         dueDate: '2025-08-31', 
         status: 'outstanding' 
+        
     },
 
     { 
