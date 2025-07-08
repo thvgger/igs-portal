@@ -4,8 +4,7 @@ import Link from 'next/link';
 const Navbar = ({
   isMobileMenuOpen,
   setIsMobileMenuOpen,
-  activeNav,
-  scrollToSection,
+  onNavClick
 }) => (
     <header className="header">
         <div className="container">
@@ -14,18 +13,14 @@ const Navbar = ({
           </div>
           <nav>
             <ul className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-              <li><Link href="#hero" onClick={() => scrollToSection('hero')} className={activeNav === 'hero' ? 'active' : ''}>Home</Link></li>
-              <li><Link href="#about" onClick={() => scrollToSection('about')} className={activeNav === 'about' ? 'active' : ''}>About Us</Link></li>
-              <li><Link href="#programs" onClick={() => scrollToSection('programs')} className={activeNav === 'programs' ? 'active' : ''}>Activities</Link></li>
-              <li><Link href="#leadership" onClick={() => scrollToSection('leadership')} className={activeNav === 'leadership' ? 'active' : ''}>Management</Link></li>
-              <li><Link href="#contact" onClick={() => scrollToSection('contact')} className={activeNav === 'contact' ? 'active' : ''}>Contact</Link></li>
-              <li><Link href="#blog" onClick={() => scrollToSection('blog')} className={activeNav === 'blog' ? 'active' : ''}>Blog/News</Link></li>
-              <li><Link href="#faq" onClick={() => scrollToSection('faq')} className={activeNav === 'faq' ? 'active' : ''}>FAQ</Link></li>
+              <li><a href="#" onClick={e => { e.preventDefault(); onNavClick && onNavClick('dashboard'); setIsMobileMenuOpen(false); }}>Home</a></li>
+              <li><a href="#" onClick={e => { e.preventDefault(); onNavClick && onNavClick('new'); setIsMobileMenuOpen(false); }}>New Payment</a></li>
+              <li><a href="#" onClick={e => { e.preventDefault(); onNavClick && onNavClick('print'); setIsMobileMenuOpen(false); }}>Print Payments</a></li>
             </ul>
-            <div className="menu-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              <span className={isMobileMenuOpen ? 'open' : ''}></span>
-              <span className={isMobileMenuOpen ? 'open' : ''}></span>
-              <span className={isMobileMenuOpen ? 'open' : ''}></span>
+            <div className={`menu-toggle${isMobileMenuOpen ? ' open' : ''}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </nav>
         </div>

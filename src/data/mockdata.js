@@ -3,7 +3,7 @@ export const Students = [
     {
         id: 'stu001',
         email: 'thvgger005@gmail.com',
-        password: 'Thvgger.005',
+        password: 'thvggerspassword',
         firstName: 'Thvgger',
         lastName: 'Adams',
         role: 'student',
@@ -91,6 +91,26 @@ export const PaymentHistory = [
         date: '2025-01-20', 
         status: 'completed', 
         transactionId: 'TXN67890' 
+    },
+
+    { 
+        id: 'pay003', 
+        studentId: 'stu001', 
+        feeName: 'First Term School Fees', 
+        amount: 100000.00, 
+        date: '2025-05-10', 
+        status: 'completed', 
+        transactionId: 'TWN12432' 
+    },
+
+    { 
+        id: 'pay004', 
+        studentId: 'stu001', 
+        feeName: 'Second Term School Fees', 
+        amount: 130000.00, 
+        date: '2025-07-10', 
+        status: 'completed', 
+        transactionId: 'TXD32345' 
     },
 
 ];
