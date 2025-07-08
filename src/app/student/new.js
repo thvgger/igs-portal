@@ -81,7 +81,6 @@ export default function New() {
                                     <th>Amount</th>
                                     {/*<th>Due Date</th>*/}
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -91,11 +90,6 @@ export default function New() {
                                         <td data-label="Amount">₦{fee.amount.toLocaleString()}</td>
                                         {/*<td data-label="Due Date">{new Date(fee.dueDate).toLocaleDateString ()}</td>*/}
                                         <td data-label="Status"><span className={`status ${fee.status}`}>   {fee.status}</span></td>
-                                        <td data-label="Action">
-                                            <Link href={`/pay?feeId=${fee.id}`} className="pay-button">
-                                                Pay Now
-                                            </Link>
-                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

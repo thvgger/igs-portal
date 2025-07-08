@@ -1,0 +1,105 @@
+'use client';
+
+import React from 'react';
+import './page.css'; // Make sure this path is correct
+import { useParams } from 'next/navigation';
+import { Students, PaymentHistory } from '@/data/mockdata'; // Make sure this path is correct
+
+const App = () => {
+  const params = useParams();
+  const paymentId = params.id;
+
+  function getPaymentById(paymentId) {
+    return PaymentHistory.find(payment => payment.id === paymentId);
+  }
+
+  // Get payment info
+  const payment = getPaymentById(paymentId);
+  // Get student info if payment exists
+  const student = payment ? Students.find(s => s.id === payment.studentId) : null;
+
+  // Function to handle printing the receipt
+  const handlePrint = () => {
+    // The CSS @media print rules will handle hiding/showing elements.
+    // We just trigger the browser's print dialog.
+    window.print();
+  };
+
+  return (
+    <div className="app-container">
+
+      {/* The receipt container - this is what will be printed */}
+      <div id="receipt-container">
+        <h1 className="receipt-title">Payment Receipt</h1>
+
+        {/* Receipt Header */}
+        <div className="receipt-header">
+          <div>
+            <p>Student Portal</p>
+            <p>University Name, City, Country</p>
+          </div>
+          <p>Date: {payment ? new Date(payment.date).toLocaleDateString() : new Date().toLocaleDateString()}</p>
+        </div>
+
+        {/* Student Information */}
+        <div className="student-info">
+          <h2>Student Details:</h2>
+          <div className="student-details-grid">
+            <p><span>Student Name:</span> {student ? `${student.firstName} ${student.lastName}` : 'N/A'}</p>
+            <p><span>Student ID:</span> {student ? student.id : 'N/A'}</p>
+            <p><span>Program:</span> Computer Science</p>
+            <p><span>Semester:</span>....</p>
+          </div>
+        </div>
+
+        {/* Payment Details */}
+        <div className="payment-details">
+          <h2>Payment Details:</h2>
+          <table className="payment-table">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{payment ? payment.feeName : 'N/A'}</td>
+                <td>{payment ? payment.amount.toLocaleString('en-US', { style: 'currency', currency: 'NGN' }) : 'N/A'}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Total Amount Paid:</td>
+                <td>{payment ? payment.amount.toLocaleString('en-US', { style: 'currency', currency: 'NGN' }) : 'N/A'}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        {/* Transaction Information */}
+        <div className="transaction-info">
+          <p><span>Payment Method:</span> Credit Card</p>
+          <p><span>Transaction ID:</span> {payment ? payment.transactionId : 'N/A'}</p>
+          <p><span>Payment Status:</span> {payment ? payment.status : 'N/A'}</p>
+        </div>
+
+        {/* Footer / Thank You Message */}
+        <div className="receipt-footer">
+          <p>Thank you for your payment!</p>
+          <p>Please keep this receipt for your records.</p>
+        </div>
+      </div>
+
+      {/* Print Button - hidden from print by CSS */}
+      <button
+        onClick={handlePrint}
+        className="no-print print-button"
+      >
+        Print Receipt
+      </button>
+    </div>
+  );
+};
+
+export default App;

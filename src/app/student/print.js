@@ -3,12 +3,11 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { OutstandingFees, PaymentHistory } from '../../data/mockdata';
+import { PaymentHistory } from '../../data/mockdata';
 
 export default function Print() {
     const router = useRouter();
     const [user, setUser] = useState(null);
-    const [studentOutstandingFees, setStudentOutstandingFees] = useState([]);
     const [studentPaymentHistory, setStudentPaymentHistory] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -33,10 +32,6 @@ export default function Print() {
         // fetch(`/api/student/${parsedUser.id}/payments`)
 
         // Filter mock data based on the logged-in student's ID
-        const outstanding = OutstandingFees.filter(
-            fee => fee.studentId === parsedUser.id
-        );
-        setStudentOutstandingFees(outstanding);
 
         const history = PaymentHistory.filter(
             payment => payment.studentId === parsedUser.id
@@ -101,7 +96,7 @@ export default function Print() {
                                         </td>
                                         <td data-label="Transaction ID">{payment.transactionId}</td>
                                         <td data-label="Action">
-                                            <Link href={`/print?paymentId=${payment.id}`} className="pay-button">
+                                            <Link href={`student/reciept/${payment.id}`} className="pay-button">
                                                Print
                                             </Link>
                                         </td>
