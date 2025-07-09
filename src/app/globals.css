@@ -268,55 +268,53 @@ a {
 
 @media (max-width: 970px) {
 
-  /* General table reset for mobile card view */
   .fees-table {
-      border: none; /* Remove table borders */
-      width: 100%; /* Ensure it takes full width */
+      border: none;
+      width: 100%;
   }
 
   .fees-table thead {
-      display: none; /* Hide table headers on mobile */
+      display: none;
   }
 
   .fees-table tbody,
   .fees-table tr,
   .fees-table td {
-      display: block; /* Make table elements act like blocks */
-      width: 100%; /* Take full width */
+      display: block;
+      width: 100%;
   }
 
   .fees-table tr {
-      margin-bottom: 15px; /* Space between each "card" row */
-      border: 1px solid #e0e0e0; /* Add card-like border to rows */
+      margin-bottom: 15px;
+      border: 1px solid #e0e0e0;
       border-radius: 8px;
-      padding: 10px 15px; /* Padding inside each card */
-      background-color: #fff; /* Ensure background is white */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+      padding: 10px 15px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
   }
 
   .fees-table td {
-      border: none; /* Remove individual cell borders */
-      text-align: left; /* Align value to the right */
-      padding-left: 50%; /* Make space for label */
-      position: relative; /* For pseudo-elements */
+      border: none;
+      text-align: left;
+      padding-left: 50%;
+      position: relative;
   }
 
-  /* Add labels to each cell using data attributes and pseudo-elements */
   .fees-table td::before {
-      content: attr(data-label); /* Get label from data-label attribute */
+      content: attr(data-label);
       position: absolute;
-      left: 15px; /* Position label */
-      width: calc(50% - 30px); /* Adjust width */
+      left: 15px;
+      width: calc(50% - 30px);
       padding-right: 10px;
-      white-space: nowrap; /* Prevent label wrapping */
+      white-space: nowrap;
       font-weight: bold;
-      text-align: left; /* Align label to the left */
+      text-align: left;
       color: #555;
   }
 
-  /* Special styles for action buttons in this layout */
+
   .fees-table td .pay-button {
-      width: 100%; /* Make action button full width */
+      width: 100%;
       margin-top: 10px;
       text-align: center;
   }

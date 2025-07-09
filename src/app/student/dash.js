@@ -108,8 +108,6 @@ export default function Dash() {
                     )}
                 </section>
 
-                <Link href='/student/reciept'>aria</Link>
-
                 <section className="payment-history-card">
                     <h2>Payment History</h2>
                     {studentPaymentHistory.length === 0 ? (
