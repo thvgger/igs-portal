@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import './page.css'; // Make sure this path is correct
+import './page.css';
 import { useParams } from 'next/navigation';
-import { Students, PaymentHistory } from '@/data/mockdata'; // Make sure this path is correct
+import { Students, PaymentHistory } from '@/data/mockdata';
 
 const App = () => {
   const params = useParams();
@@ -28,11 +28,9 @@ const App = () => {
   return (
     <div className="app-container">
 
-      {/* The receipt container - this is what will be printed */}
       <div id="receipt-container">
         <h1 className="receipt-title">Payment Receipt</h1>
 
-        {/* Receipt Header */}
         <div className="receipt-header">
           <div>
             <p>Student Portal</p>
@@ -41,7 +39,6 @@ const App = () => {
           <p>Date: {payment ? new Date(payment.date).toLocaleDateString() : new Date().toLocaleDateString()}</p>
         </div>
 
-        {/* Student Information */}
         <div className="student-info">
           <h2>Student Details:</h2>
           <div className="student-details-grid">
@@ -52,7 +49,6 @@ const App = () => {
           </div>
         </div>
 
-        {/* Payment Details */}
         <div className="payment-details">
           <h2>Payment Details:</h2>
           <table className="payment-table">
@@ -77,21 +73,18 @@ const App = () => {
           </table>
         </div>
 
-        {/* Transaction Information */}
         <div className="transaction-info">
           <p><span>Payment Method:</span> Credit Card</p>
           <p><span>Transaction ID:</span> {payment ? payment.transactionId : 'N/A'}</p>
           <p><span>Payment Status:</span> {payment ? payment.status : 'N/A'}</p>
         </div>
 
-        {/* Footer / Thank You Message */}
         <div className="receipt-footer">
           <p>Thank you for your payment!</p>
           <p>Please keep this receipt for your records.</p>
         </div>
       </div>
 
-      {/* Print Button - hidden from print by CSS */}
       <button
         onClick={handlePrint}
         className="no-print print-button"
