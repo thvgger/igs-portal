@@ -5,7 +5,7 @@ export const AcademicYears = [
         name: '2024/2025 Academic Year',
         startDate: '2024-09-09',
         endDate: '2025-07-25',
-        current: true // Marks the current academic year
+        current: true 
     },
     {
         id: 'year2025-2026',
@@ -32,7 +32,7 @@ export const Terms = [
         name: 'Second Term',
         startDate: '2025-01-06',
         endDate: '2025-04-04',
-        current: true // Marks the current term
+        current: true
     },
     {
         id: 'term3_2024-2025',
@@ -61,7 +61,7 @@ export const Students = [
         firstName: 'Thvgger',
         lastName: 'Adams',
         class: 'SS2',
-        currentAcademicYearId: 'year2024-2025', // Student is currently in this academic year
+        currentAcademicYearId: 'year2024-2025',
         role: 'student',
     },
     {
@@ -108,21 +108,21 @@ export const OutstandingFees = [
         id: 'fee001',
         studentId: 'stu001',
         academicYearId: 'year2024-2025',
-        termId: 'term3_2024-2025', // Assuming this fee is for the third term
+        termId: 'term3_2024-2025',
         name: 'Third Term Tuition Fee',
         amount: 150000.00,
         dueDate: '2025-08-31',
-        status: 'outstanding', // Could be 'outstanding' or 'overdue'
+        status: 'outstanding',
     },
     {
         id: 'fee002',
         studentId: 'stu001',
         academicYearId: 'year2024-2025',
-        termId: 'term2_2024-2025', // Library fee for second term
+        termId: 'term2_2024-2025',
         name: 'Second Term Library Fee',
         amount: 5000.00,
         dueDate: '2025-07-15',
-        status: 'overdue', // Example: this fee is now overdue
+        status: 'overdue',
     },
     {
         id: 'fee003',
