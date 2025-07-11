@@ -1,0 +1,234 @@
+/* Global styles */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif; /* Using Inter font as per instructions */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem; /* Equivalent to p-4 */
+}
+
+/* Receipt Container */
+#receipt-container {
+  background-color: #ffffff; /* Equivalent to bg-white */
+  padding: 2rem; /* Equivalent to p-8 */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-xl */
+  max-width: 42rem; /* Equivalent to max-w-2xl */
+  width: 100%;
+  margin-bottom: 2rem; /* Equivalent to mb-8 */
+}
+
+.receipt-title {
+  font-size: 2.25rem; /* Equivalent to text-3xl */
+  font-weight: 700; /* Equivalent to font-bold */
+  text-align: center;
+  color: #4f46e5; /* Equivalent to text-indigo-700 */
+  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+}
+
+/* Receipt Header */
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb; /* Equivalent to border-b */
+  padding-bottom: 1rem; /* Equivalent to pb-4 */
+  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+}
+
+.receipt-header div p:first-child {
+  font-size: 1.125rem; /* Equivalent to text-lg */
+  font-weight: 600; /* Equivalent to font-semibold */
+  color: #1f2937; /* Equivalent to text-gray-800 */
+}
+
+.receipt-header div p:last-child,
+.receipt-header > p {
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  color: #4b5563; /* Equivalent to text-gray-600 */
+}
+
+/* Student Information */
+.student-info {
+  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+}
+
+.student-info h2,
+.payment-details h2 {
+  font-size: 1.25rem; /* Equivalent to text-xl */
+  font-weight: 600; /* Equivalent to font-semibold */
+  color: #1f2937; /* Equivalent to text-gray-800 */
+  margin-bottom: 0.75rem; /* Equivalent to mb-3 */
+}
+
+.student-details-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Equivalent to grid-cols-1 */
+  gap-row: 0.5rem; /* Equivalent to gap-y-2 */
+  color: #374151; /* Equivalent to text-gray-700 */
+}
+
+@media (min-width: 768px) { /* Equivalent to md:grid-cols-2 */
+  .student-details-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.student-details-grid p span {
+  font-weight: 500; /* Equivalent to font-medium */
+}
+
+/* Payment Details */
+.payment-details {
+  margin-bottom: 2rem; /* Equivalent to mb-8 */
+}
+
+.payment-table {
+  min-width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; /* Equivalent to border border-gray-200 */
+  border-radius: 0.375rem; /* Equivalent to rounded-md */
+  overflow: hidden;
+}
+
+.payment-table thead tr {
+  background-color: #e0e7ff; /* Equivalent to bg-indigo-100 */
+  color: #3730a3; /* Equivalent to text-indigo-800 */
+  text-align: left;
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 0.5rem 1rem; /* Equivalent to py-2 px-4 */
+  border-bottom: 1px solid #e5e7eb; /* Equivalent to border-b */
+}
+
+.payment-table th:last-child,
+.payment-table td:last-child {
+  text-align: right;
+}
+
+.payment-table tbody tr:last-child td {
+    border-bottom: none; /* Remove border for the last row in tbody */
+}
+
+.payment-table tfoot tr {
+  background-color: #f9fafb; /* Equivalent to bg-gray-50 */
+  font-weight: 700; /* Equivalent to font-bold */
+  color: #111827; /* Equivalent to text-gray-900 */
+}
+
+.payment-table tfoot td {
+  padding: 0.75rem 1rem; /* Equivalent to py-3 px-4 */
+  font-size: 1.125rem; /* Equivalent to text-lg */
+}
+
+/* Transaction Information */
+.transaction-info {
+  color: #374151; /* Equivalent to text-gray-700 */
+  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+}
+
+.transaction-info p {
+  margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+}
+
+.transaction-info p span {
+  font-weight: 500; /* Equivalent to font-medium */
+}
+
+/* Footer / Thank You Message */
+.receipt-footer {
+  text-align: center;
+  color: #4b5563; /* Equivalent to text-gray-600 */
+  border-top: 1px solid #e5e7eb; /* Equivalent to border-t */
+  padding-top: 1.5rem; /* Equivalent to pt-6 */
+}
+
+.receipt-footer p:first-child {
+  font-size: 1rem; /* Equivalent to text-md */
+  margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+}
+
+.receipt-footer p:last-child {
+  font-size: 0.875rem; /* Equivalent to text-sm */
+}
+
+/* Print Button */
+.print-button {
+  background-color: #4f46e5; /* Equivalent to bg-indigo-600 */
+  color: #ffffff;
+  font-weight: 700; /* Equivalent to font-bold */
+  padding: 0.75rem 1.5rem; /* Equivalent to py-3 px-6 */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalent to shadow-md */
+  transition: all 0.3s ease-in-out; /* Equivalent to transition duration-300 ease-in-out */
+  transform: scale(1);
+  border: none;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #4338ca; /* Equivalent to hover:bg-indigo-700 */
+  transform: scale(1.05); /* Equivalent to hover:scale-105 */
+}
+
+.print-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5); /* Equivalent to focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 */
+}
+
+/* Styles to hide elements when printing */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  /* Ensure the receipt takes full width when printing */
+  #receipt-container {
+    width: 100% !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  /* Optional: Styles specifically for printing the receipt */
+  /* You might want to adjust font sizes for print if needed */
+  .receipt-title {
+      font-size: 24px;
+  }
+
+  .student-info,
+  .payment-details,
+  .transaction-info,
+  .receipt-footer {
+      margin-bottom: 15px; /* Add some spacing for readability */
+  }
+
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+
+  th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+  }
+
+  tfoot tr td {
+      font-weight: bold;
+  }
+}

@@ -1,0 +1,275 @@
+
+
+.dashboardContainer {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+.dashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dashboardHeader h1 {
+    font-size: 2em;
+    color: var(--text);
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+    .dashboardHeader h1 {
+        font-size: 1.5em;
+    }
+}
+
+.logoutButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+    background-color: #c82333;
+}
+
+.studentInfoCard,
+.outstandingFeesCard,
+.paymentHistoryCard,
+.filterSection {
+    background-color: var(--background);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.studentInfoCard h2,
+.outstandingFeesCard h2,
+.paymentHistoryCard h2,
+.filterSection h3 {
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2em;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.studentInfoCard p,
+.outstandingFeesCard p,
+.paymentHistoryCard p,
+.filterSection p {
+    color: var(--text);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+
+
+@media (max-width: 768px) {
+    .studentInfoCard h2,
+    .outstandingFeesCard h2,
+    .paymentHistoryCard h2,
+    .filterSection h3 {
+        font-size: 1.2em;
+    }
+    .studentInfoCard,
+    .outstandingFeesCard,
+    .paymentHistoryCard,
+    .filterSection {
+        padding: 15px;
+    }
+}
+
+
+.studentInfoCard p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.filterControls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+}
+
+.filterControls label {
+    font-weight: bold;
+    color: var(--text);
+    white-space: nowrap; 
+}
+
+.filterSelect {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    min-width: 180px;
+    background-color: var(--background);
+    color: var(--text);
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+@media (max-width: 480px) {
+    .filterSelect {
+        min-width: unset; 
+        width: 100%; 
+    }
+}
+
+.filterSelect:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.filterSelect:disabled {
+    background-color: #e9e9e9;
+    cursor: not-allowed;
+}
+
+.feesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95em;
+    @media (max-width: 768px) {
+        border: 0;
+    }
+}
+
+.feesTable thead {
+    @media (max-width: 768px) {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+}
+
+.feesTable tr {
+    border-bottom: 1px solid var(--text);
+    @media (max-width: 768px) {
+        display: block;
+        margin-bottom: 25px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+}
+
+.feesTable th,
+.feesTable td {
+    padding: 12px 15px;
+    text-align: left;
+    @media (min-width: 769px) {
+        border-bottom: 1px solid #f0f0f0;
+    }
+}
+
+.feesTable th {
+    background-color: var(--text);
+    color:  var(--text-dark);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.feesTable td {
+    color: var(--text);
+    @media (max-width: 768px) {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid #eee; 
+    }
+}
+
+.feesTable td:last-child {
+    @media (max-width: 768px) {
+        border-bottom: 0;
+    }
+}
+
+.feesTable td[data-label]::before {
+    @media (max-width: 768px) {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: #555;
+    }
+}
+
+
+.status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 0.85em;
+    display: inline-block; 
+}
+
+.status.outstanding {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status.overdue {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status.completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.payButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.payButton:hover {
+    background-color: #0056b3;
+}
