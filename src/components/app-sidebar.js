@@ -85,6 +85,8 @@ const studentData = {
   program: "Computer Science",
 }
 
+import { Students } from "@/data/mockdata"
+
 export function AppSidebar({ ...props }) {
   return (
     <Sidebar collapsible="icon" className="border-r border-blue-100" {...props}>
@@ -97,8 +99,8 @@ export function AppSidebar({ ...props }) {
                   <GraduationCap className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold text-white">EduPay Portal</span>
-                  <span className="truncate text-xs text-blue-100">Student Payment System</span>
+                  <span className="truncate font-semibold text-white">Ifeoluwa Group Of Schools</span>
+                  <span className="truncate text-xs text-blue-100">Student Payment Portal</span>
                 </div>
               </a>
             </SidebarMenuButton>
@@ -163,7 +165,7 @@ export function AppSidebar({ ...props }) {
         </SidebarGroup>
 
         {/* Quick Balance Display */}
-        <SidebarGroup>
+        {/* <SidebarGroup>
           <SidebarGroupContent>
             <div className="mx-2 p-3 bg-green-50 border border-green-200 rounded-lg">
               <div className="flex items-center gap-2 text-green-800">
@@ -175,7 +177,7 @@ export function AppSidebar({ ...props }) {
               </div>
             </div>
           </SidebarGroupContent>
-        </SidebarGroup>
+        </SidebarGroup> */}
       </SidebarContent>
 
       <SidebarFooter className="bg-white border-t border-slate-200">
