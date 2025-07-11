@@ -77,7 +77,17 @@ const accountItems = [
 ]
 
 // Use student data from mockdata.js
+
+import { useRouter } from "next/navigation"
 import { Students } from "@/data/mockdata"
+
+
+export function AppSidebar({ ...props }) {
+  const router = useRouter();
+  const handleLogout = () => {
+    localStorage.removeItem('currentUser');
+    router.push('/login');
+  };
 
 const studentData = {
   name: `${Students[0].firstName} ${Students[0].lastName}`,
@@ -88,7 +98,6 @@ const studentData = {
 }
 
 
-export function AppSidebar({ ...props }) {
   return (
     <Sidebar collapsible="icon" className="border-r border-blue-100" {...props}>
       <SidebarHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
@@ -239,9 +248,11 @@ export function AppSidebar({ ...props }) {
                   Account Settings
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="text-red-600">
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Sign Out
+                <DropdownMenuItem asChild className="text-red-600">
+                  <button type="button" onClick={handleLogout} className="flex items-center w-full bg-transparent border-none p-0 m-0 text-red-600 cursor-pointer">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Sign Out
+                  </button>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
