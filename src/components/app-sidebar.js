@@ -76,16 +76,17 @@ const accountItems = [
   },
 ]
 
-// Sample student data
+// Use student data from mockdata.js
+import { Students } from "@/data/mockdata"
+
 const studentData = {
-  name: "Sarah Johnson",
-  studentId: "STU2024001",
-  email: "sarah.johnson@student.edu",
+  name: `${Students[0].firstName} ${Students[0].lastName}`,
+  studentId: Students[0].id,
+  email: Students[0].email,
   avatar: "/placeholder.svg?height=32&width=32",
-  program: "Computer Science",
+  program: Students[0].class,
 }
 
-import { Students } from "@/data/mockdata"
 
 export function AppSidebar({ ...props }) {
   return (
