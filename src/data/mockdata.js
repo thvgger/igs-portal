@@ -84,6 +84,17 @@ export const Students = [
         currentAcademicYearId: 'year2024-2025',
         role: 'student',
     },
+    {
+        id: 'stu004',
+        email: 'damy84511@gmail.com',
+        password: 'dtechy',
+        firstName: 'dtechy',
+        lastName: 'dtechy',
+        class: 'Junior Secondary School 3',
+        currentAcademicYearId: 'year2024-2025',
+        role: 'student',
+    },
+    
 ];
 
 export const Admins = [
